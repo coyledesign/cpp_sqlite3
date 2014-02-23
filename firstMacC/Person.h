@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <string>
+#include "Database.h"
+using namespace std;
 class Person {
 private:
     int age;
@@ -20,8 +22,9 @@ public:
         std::cout << this->name;
         return this->name;
     }
-    void setName(std::string name) {
+    void setName(std::string name, Database db) {
         this->name = name;
+        db.insertRecord(name);
     }
 };
 #endif /* defined(__firstMacC__Person__) */
