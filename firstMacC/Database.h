@@ -27,12 +27,15 @@ public:
             sqlite3_close(database) ;
             return 2;
         }
+        cout << "ID\t" << "Name" << endl;
         do {
             result = sqlite3_step (stmt) ;
             if (result == SQLITE_ROW) { /* can read data */
+                char * id  = (char *)malloc(100);
                 char * name  = (char *)malloc(100);
+                strcpy(id, (char *)sqlite3_column_text(stmt,0)) ;
                 strcpy(name, (char *)sqlite3_column_text(stmt,1)) ;
-                cout << name << endl;
+                cout << id << "\t" << name << endl;
             }
         } while (result == SQLITE_ROW) ;
         sqlite3_close(database);

@@ -22,7 +22,10 @@ public:
         std::cout << this->name;
         return this->name;
     }
-    void setName(std::string name, Database db) {
+    void setName(Database db) {
+        string name;
+        cout << "Enter your name: ";
+        cin >> name;
         this->name = name;
         db.insertRecord(name);
     }

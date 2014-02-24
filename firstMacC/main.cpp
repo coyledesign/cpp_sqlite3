@@ -9,7 +9,10 @@
 #include <iostream>
 #include <string>
 #include <sqlite3.h>
+#include <stdio.h>
+#ifndef __firstMacC__Person__
 #include "Person.h"
+#endif
 using namespace std;
 
 
@@ -28,8 +31,7 @@ int main(int argc, const char * argv[])
     Database db;
     db.getCols();
     Person person;
-    string name;
-    person.setName(name, db);
+    person.setName(db);
     printf("Opened db %s OK\n\r",dbname) ;
     return 0;
 }
